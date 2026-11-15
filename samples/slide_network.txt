@@ -1,0 +1,12 @@
+# Directed Flow Network from W12 Network Flow lecture slides (Pages 4-10)
+# 6 vertices (S, A, B, C, D, T), 8 directed edges with capacities.
+# Source = S, Sink = T. Expected Maximum Flow = 6, Minimum Cut Capacity = 6.
+6 8 S T
+S A 5
+S B 2
+A B 2
+A C 2
+B D 4
+D C 1
+C T 3
+D T 5

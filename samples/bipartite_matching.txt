@@ -1,0 +1,11 @@
+# Maximum Bipartite Matching Flow Network from W12 Network Flow lecture slides (Pages 11-15)
+# Bipartite sets V1 = {a, b}, V2 = {c, d}, converted to a flow network with source s and sink t.
+# Expected Maximum Flow = 2 (matching a->d and b->c).
+6 7 s t
+s a 1
+s b 1
+a c 1
+a d 1
+b c 1
+c t 1
+d t 1
