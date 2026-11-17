@@ -154,7 +154,11 @@ In each iteration:
 
 ### 3. Instructions to run the code
 1. Move into the W12 root directory and run the program by doing `py edmonds_karp.py`.
-2. ...
+2. Write input in this format:
+   * Line 1: `N M S T` (`N` vertices, `M` directed edges, source `S`, sink `T`)
+   * Next lines: `u v cap` (directed edge from `u` to `v` with capacity `cap`; `#` comments and blank lines are ignored)
+   * (Optional) To run with an input file, do `py edmonds_karp.py [input_file_name].txt`
+3. When done writing, press Enter to create a new line. On the new line, do Ctrl+Z and press Enter again to finish end `stdin` and get results.
 
 ### 4. Result of sample run
 
