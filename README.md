@@ -138,13 +138,23 @@ Max-Flow Min-Cut Verification:
 
 ---
 
-## B. [Algorithm Name]
+## B. Edmonds-Karp Algorithm
 
 ### 1. Short explanation about algorithm
+Edmonds-Karp is a maximum flow algorithm that implements the Ford-Fulkerson method using **Breadth-First Search (BFS)** to choose the **shortest augmenting path** (fewest edges) from a source vertex `S` to a sink vertex `T` in the residual graph.
+
+In each iteration:
+1. BFS searches for a path from `S` to `T` along edges with positive residual capacity.
+2. The minimum residual capacity (bottleneck) along that path is pushed as additional flow.
+3. Forward residual capacities decrease by the pushed flow, while reverse residual capacities increase so later paths can reroute or undo flow if needed.
+4. The process repeats until no path from `S` to `T` exists in the residual graph, running in O($VE^2$) time.
 
 ### 2. Prerequisite to run the code, if any
+- Python 3.10 or newer (uses built-in type hints such as `list[int]` and `tuple[...]`).
 
 ### 3. Instructions to run the code
+1. Move into the W12 root directory and run the program by doing `py edmonds_karp.py`.
+2. ...
 
 ### 4. Result of sample run
 
