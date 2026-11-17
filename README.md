@@ -161,7 +161,8 @@ In each iteration:
 3. When done writing, press Enter to create a new line. On the new line, do Ctrl+Z and press Enter again to finish end `stdin` and get results.
 
 ### 4. Result of sample run
-1. Bottleneck / Single-Path Limit
+
+### Sample 1: Bottleneck / Single-Path Limit
 ```text
 $ py edmonds_karp.py
 Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
@@ -186,8 +187,7 @@ Edge Flows (flow / capacity):
   2 -> 3: 100 / 100
 ```
 
-
-2. Disconnected Sink (Zero Flow)
+### Sample 2: Disconnected Sink (Zero Flow)
 ```text
 $ py edmonds_karp.py
 Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
@@ -212,8 +212,7 @@ Edge Flows (flow / capacity):
   3 -> 4: 0 / 50
 ```
 
-
-3. Parallel Branches
+### Sample 3: Parallel Branches
 ```text
 $ py edmonds_karp.py
 Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
@@ -242,8 +241,7 @@ Edge Flows (flow / capacity):
 
 ```
 
-
-4. Multi-Stage Supply-to-Sink Network
+### Sample 4: Multi-Stage Supply-to-Sink Network
 ```text
 $ py edmonds_karp.py
 Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
