@@ -282,8 +282,5 @@ Edge Flows (flow / capacity):
 ```
 
 ---
-
-## AI Usage Disclosure
-
 ### AI Involved:
 1. https://share.gemini.google/T3hQxkZckDb2
