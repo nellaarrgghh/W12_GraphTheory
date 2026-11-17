@@ -147,7 +147,7 @@ In each iteration:
 1. BFS searches for a path from `S` to `T` along edges with positive residual capacity.
 2. The minimum residual capacity (bottleneck) along that path is pushed as additional flow.
 3. Forward residual capacities decrease by the pushed flow, while reverse residual capacities increase so later paths can reroute or undo flow if needed.
-4. The process repeats until no path from `S` to `T` exists in the residual graph, running in O($VE^2$) time.
+4. The process repeats until no path from `S` to `T` exists in the residual graph, running in $O($VE^2$)$ time.
 
 ### 2. Prerequisite to run the code, if any
 - Python 3.10 or newer (uses built-in type hints such as `list[int]` and `tuple[...]`).
