@@ -147,7 +147,7 @@ In each iteration:
 1. BFS searches for a path from `S` to `T` along edges with positive residual capacity.
 2. The minimum residual capacity (bottleneck) along that path is pushed as additional flow.
 3. Forward residual capacities decrease by the pushed flow, while reverse residual capacities increase so later paths can reroute or undo flow if needed.
-4. The process repeats until no path from `S` to `T` exists in the residual graph, running in $O($VE^2$)$ time.
+4. The process repeats until no path from `S` to `T` exists in the residual graph, running in O($VE^2$) time.
 
 ### 2. Prerequisite to run the code, if any
 - Python 3.10 or newer (uses built-in type hints such as `list[int]` and `tuple[...]`).
@@ -161,11 +161,128 @@ In each iteration:
 3. When done writing, press Enter to create a new line. On the new line, do Ctrl+Z and press Enter again to finish end `stdin` and get results.
 
 ### 4. Result of sample run
+1. Bottleneck / Single-Path Limit
+```text
+$ py edmonds_karp.py
+Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
+4 4 0 3
+0 1 100
+0 2 100
+1 2 5
+2 3 100
+^Z
 
+=== Edmonds-Karp Results ===
+Source: 0 | Sink: 3
+Maximum Flow: 100
+
+Augmenting Paths:
+  1. 0 -> 2 -> 3  (flow +100)
+
+Edge Flows (flow / capacity):
+  0 -> 1: 0 / 100
+  0 -> 2: 100 / 100
+  1 -> 2: 0 / 5
+  2 -> 3: 100 / 100
+```
+
+2. Disconnected Sink (Zero Flow)
+```text
+$ py edmonds_karp.py
+Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
+5 4 0 4
+0 1 20
+1 2 15
+2 1 10
+3 4 50
+^Z
+
+=== Edmonds-Karp Results ===
+Source: 0 | Sink: 4
+Maximum Flow: 0
+
+Augmenting Paths:
+  None (no path from source to sink)
+
+Edge Flows (flow / capacity):
+  0 -> 1: 0 / 20
+  1 -> 2: 0 / 15
+  2 -> 1: 0 / 10
+  3 -> 4: 0 / 50
+```
+
+3. Parallel Branches
+```text
+$ py edmonds_karp.py
+Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
+4 5 0 3
+0 1 10
+0 2 10
+1 3 4
+2 3 8
+1 2 2
+^Z
+
+=== Edmonds-Karp Results ===
+Source: 0 | Sink: 3
+Maximum Flow: 12
+
+Augmenting Paths:
+  1. 0 -> 1 -> 3  (flow +4)
+  2. 0 -> 2 -> 3  (flow +8)
+
+Edge Flows (flow / capacity):
+  0 -> 1: 4 / 10
+  0 -> 2: 8 / 10
+  1 -> 2: 0 / 2
+  1 -> 3: 4 / 4
+  2 -> 3: 8 / 8
+
+```
+
+4. Multi-Stage Supply-to-Sink Network
+```text
+$ py edmonds_karp.py
+Enter: N M S T (vertices, edges, source, sink), followed by M lines of 'u v capacity':
+7 10 0 6
+0 1 12
+0 2 14
+1 3 8
+1 4 6
+2 3 7
+2 5 9
+3 6 15
+4 6 10
+5 4 5
+5 6 12
+^Z
+
+=== Edmonds-Karp Results ===
+Source: 0 | Sink: 6
+Maximum Flow: 26
+
+Augmenting Paths:
+  1. 0 -> 1 -> 3 -> 6  (flow +8)
+  2. 0 -> 1 -> 4 -> 6  (flow +4)
+  3. 0 -> 2 -> 3 -> 6  (flow +7)
+  4. 0 -> 2 -> 5 -> 6  (flow +7)
+
+Edge Flows (flow / capacity):
+  0 -> 1: 12 / 12
+  0 -> 2: 14 / 14
+  1 -> 3: 8 / 8
+  1 -> 4: 4 / 6
+  2 -> 3: 7 / 7
+  2 -> 5: 7 / 9
+  3 -> 6: 15 / 15
+  4 -> 6: 4 / 10
+  5 -> 4: 0 / 5
+  5 -> 6: 7 / 12
+```
 
 ---
 
 ## AI Usage Disclosure
 
 ### AI Involved:
-1. [Insert AI share link here]
+1. https://share.gemini.google/T3hQxkZckDb2
