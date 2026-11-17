@@ -186,7 +186,7 @@ Edge Flows (flow / capacity):
   2 -> 3: 100 / 100
 ```
 
-<br>
+
 2. Disconnected Sink (Zero Flow)
 ```text
 $ py edmonds_karp.py
@@ -212,7 +212,7 @@ Edge Flows (flow / capacity):
   3 -> 4: 0 / 50
 ```
 
-<br>
+
 3. Parallel Branches
 ```text
 $ py edmonds_karp.py
@@ -242,7 +242,7 @@ Edge Flows (flow / capacity):
 
 ```
 
-<br>
+
 4. Multi-Stage Supply-to-Sink Network
 ```text
 $ py edmonds_karp.py
